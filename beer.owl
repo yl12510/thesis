@@ -1,0 +1,525 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/yl12510/ontologies/beer#"
+     xml:base="http://www.semanticweb.org/yl12510/ontologies/beer"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:beer="http://www.semanticweb.org/yl12510/ontologies/beer#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#adjacentPlace -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#adjacentPlace">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#brewedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#brewedIn">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#brewedIn"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#locatedIn"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#fermentsBeer -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#fermentsBeer">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#isFermentedBy"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Yeast"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Beer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#hasColour -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#hasColour">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#hasDescription"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#Ale"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#Lager"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Colour"/>
+        <owl:propertyDisjointWith rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#hasTaste"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#hasDescription -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#hasDescription">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#hasFlavour -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#hasFlavour">
+        <owl:equivalentProperty rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#hasTaste"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#hasDescription"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#Ale"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#Lager"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Flavour"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#hasTaste -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#hasTaste">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#hasDescription"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#isFermentedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#isFermentedBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Beer"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Yeast"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#locatedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#locatedIn">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#hasAlcoholLevel -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#hasAlcoholLevel"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#Ale -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#Ale">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Beer"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Lager"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#Beer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#Beer">
+        <owl:equivalentClass rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#LiquidBread"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#hasFlavour"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Flavour"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#hasFlavour"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#hasFlavour"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Flavour"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#Ale"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#Lager"/>
+        </owl:disjointUnionOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#BrownBritishBeer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#BrownBritishBeer">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#Beer"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#brewedIn"/>
+                        <owl:hasValue rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Britain"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#hasColour"/>
+                        <owl:hasValue rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Brown"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Ale"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#Colour -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#Colour"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#CzechBeer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#CzechBeer">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#CzechBeer"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#Lager"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#CzechLager -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#CzechLager">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Beer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#Flavour -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#Flavour"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#Lager -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#Lager">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Beer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#LiquidBread -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#LiquidBread"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#PaleAle -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#PaleAle">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Ale"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#Pilsner -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#Pilsner">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#LiquidBread"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#Porter -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#Porter">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#Beer"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#hasColour"/>
+                        <owl:hasValue rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Dark"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Ale"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#hasColour"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Dark"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#Yeast -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#Yeast"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#Amber -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#Amber">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Colour"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#AmericanPorter -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#AmericanPorter">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Porter"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#BalticPorter -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#BalticPorter">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Porter"/>
+        <hasColour rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Dark"/>
+        <hasTaste rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Malty"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#Belgium -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#Belgium">
+        <adjacentPlace rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Germany"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#Bitter -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#Bitter">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Flavour"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#BlondeAle -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#BlondeAle">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#PaleAle"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#Britain -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#Britain"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#BritishBrownAle -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#BritishBrownAle">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Ale"/>
+        <brewedIn rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Britain"/>
+        <hasColour rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Brown"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#BritishGoldenAle -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#BritishGoldenAle">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#PaleAle"/>
+        <hasFlavour rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Bitter"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#Brown -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#Brown">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Colour"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#CreamAle -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#CreamAle">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#PaleAle"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#CzechDarkLager -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#CzechDarkLager">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#CzechLager"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#CzechPaleLager -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#CzechPaleLager">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#CzechBeer"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Lager"/>
+        <hasFlavour rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Bitter"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#Dark -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#Dark">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Colour"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#EnglishPorter -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#EnglishPorter">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Ale"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Porter"/>
+        <hasColour rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Dark"/>
+        <hasFlavour rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Malty"/>
+        <hasAlcoholLevel rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">5.4</hasAlcoholLevel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#Europe -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#Europe"/>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#GermanPils -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#GermanPils">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Pilsner"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#Germany -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#Germany">
+        <adjacentPlace rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Belgium"/>
+        <locatedIn rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Europe"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#Malty -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#Malty">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Flavour"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#Munich -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#Munich">
+        <locatedIn rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Germany"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#MunichDunkel -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#MunichDunkel">
+        <brewedIn rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Munich"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#OldAle -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#OldAle">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Ale"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#Pale -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#Pale">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Colour"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/yl12510/ontologies/beer#Sweet -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/yl12510/ontologies/beer#Sweet">
+        <rdf:type rdf:resource="http://www.semanticweb.org/yl12510/ontologies/beer#Flavour"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
+
